@@ -1,7 +1,10 @@
+* {
+  box-sizing: border-box;
+}
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
-.mainContent {
+#mainContent {
   width: 80%;
   margin: 0 auto;
 }
@@ -11,22 +14,66 @@ header {
   border-radius: 0 0 10px 10px;
   padding: 3em 2.5em;
 }
-.formContainer {
+#formContainer {
   margin-top: 2em;
   padding: 1.5em;
   background-color: #fff;
 }
-.filterButtonContainer {
+#filterButtonContainer {
   display: flex;
   flex-wrap: wrap;
 }
-.filterButtonContainer button {
+#filterButtonContainer button {
   flex-grow: 1;
   border-radius: 0;
   flex-basis: 20%;
 }
-.filterSection {
+#filterSection {
   border-top: 1px solid #000;
   background-color: #fff;
   padding-top: 1.25em;
+}
+#displayContainer {
+  margin: 1.5em 0;
+  width: 100%;
+}
+
+#firstYearsContainer,
+#mortysArmyContainer {
+  padding: 1.5em;
+  min-width: 50%;
+  /* flex-grow: 1; */
+  border: 1px solid darkslategrey;
+}
+.color--Gryffindor1 {
+  flex-basis: 5em;
+  background-color: #740001;
+}
+.color--Gryffindor2 {
+  flex-basis: 1.5em;
+  background-color: #d3a625;
+}
+.color--Hufflepuff1 {
+  flex-basis: 5em;
+  background-color: #ffd800;
+}
+.color--Hufflepuff2 {
+  flex-basis: 1.5em;
+  background-color: #000;
+}
+.color--Ravenclaw1 {
+  flex-basis: 5em;
+  background-color: #0e1a40;
+}
+.color--Ravenclaw2 {
+  flex-basis: 1.5em;
+  background-color: #946b2d;
+}
+.color--Slytherin1 {
+  flex-basis: 5em;
+  background-color: #1a472a;
+}
+.color--Slytherin2 {
+  flex-basis: 1.5em;
+  background-color: #5d5d5d;
 }
