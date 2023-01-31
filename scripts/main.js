@@ -239,6 +239,7 @@ const sortStudent = (event) => {
 const sortButton = document.querySelector("#sortButton");
 sortButton.addEventListener("click", sortStudent);
 
+// ### SHOW HIDE FORM
 const newStudentButton = document.querySelector("#newStudentButton");
 // *** A way to toggle a class on and off on an element ***
 newStudentButton.addEventListener("click", (event) => {
@@ -246,4 +247,34 @@ newStudentButton.addEventListener("click", (event) => {
   toggleShow.classList.toggle("showForm");
 });
 
+// ### FILTER BUTTONS
+const all = document.querySelector("#allStudents");
+const gryffindorStudents = document.querySelector("#gryffindorStudents");
+const hufflepuffStudents = document.querySelector("#hufflepuffStudents");
+const ravenclawStudents = document.querySelector("#ravenclawStudents");
+const slytherinStudents = document.querySelector("#slytherinStudents");
+
+all.addEventListener("click", () => {
+  createCard(students);
+});
+
+gryffindorStudents.addEventListener("click", () => {
+  const griff = students.filter((student) => student.house === "Gryffindor");
+  createCard(griff);
+});
+
+hufflepuffStudents.addEventListener("click", () => {
+  const huff = students.filter((student) => student.house === "Hufflepuff");
+  createCard(huff);
+});
+
+ravenclawStudents.addEventListener("click", () => {
+  const raven = students.filter((student) => student.house === "Ravenclaw");
+  createCard(raven);
+});
+
+slytherinStudents.addEventListener("click", () => {
+  const slytherin = students.filter((student) => student.house === "Slytherin");
+  createCard(slytherin);
+});
 createCard(students);
