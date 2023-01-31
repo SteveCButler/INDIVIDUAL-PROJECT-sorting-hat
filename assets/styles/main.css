@@ -87,3 +87,6 @@ header {
 .showForm {
   display: block;
 }
+#sortButton {
+  padding: 0 0.5em;
+}
