@@ -3,6 +3,7 @@
 }
 body {
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.85em;
 }
 #mainContent {
   width: 80%;
@@ -12,7 +13,7 @@ header {
   background-color: rgb(240, 238, 238);
   text-align: center;
   border-radius: 0 0 10px 10px;
-  padding: 3em 2.5em;
+  padding: 2em 2.5em;
 }
 #formContainer {
   margin-top: 2em;
@@ -45,35 +46,44 @@ header {
   /* flex-grow: 1; */
   border: 1px solid darkslategrey;
 }
+
+/**** Card Colors ****/
 .color--Gryffindor1 {
-  flex-basis: 5em;
+  min-width: 1.5em;
   background-color: #740001;
 }
 .color--Gryffindor2 {
-  flex-basis: 1.5em;
+  flex-basis: 0.85em;
   background-color: #d3a625;
 }
 .color--Hufflepuff1 {
-  flex-basis: 5em;
+  min-width: 1.5em;
   background-color: #ffd800;
 }
 .color--Hufflepuff2 {
-  flex-basis: 1.5em;
+  flex-basis: 0.85em;
   background-color: #000;
 }
 .color--Ravenclaw1 {
-  flex-basis: 5em;
+  min-width: 1.5em;
   background-color: #0e1a40;
 }
 .color--Ravenclaw2 {
-  flex-basis: 1.5em;
+  flex-basis: 0.85em;
   background-color: #946b2d;
 }
 .color--Slytherin1 {
-  flex-basis: 5em;
+  min-width: 1.5em;
   background-color: #1a472a;
 }
 .color--Slytherin2 {
-  flex-basis: 1.5em;
+  flex-basis: 0.85em;
   background-color: #5d5d5d;
+}
+/*** Toggle FORM  ***/
+.hideForm {
+  display: none;
+}
+.showForm {
+  display: block;
 }
