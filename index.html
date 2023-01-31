@@ -16,7 +16,7 @@
     <title>HoggieWarts Sorting Hat</title>
   </head>
   <body>
-    <div class="mainContent">
+    <div id="mainContent">
       <header>
         <h1>Welcome to Hoggy Hoggy Warts, RELOADED!</h1>
         <p>
@@ -29,7 +29,10 @@
           Think hard, wish hard, but you may be surprised, because I have the
           last say, for I am the sorting hat.
         </p>
-        <div class="formContainer">
+        <div id="sortButton">
+          <button type="submit" class="btn btn-primary mb-3">Sort</button>
+        </div>
+        <div id="formContainer" class="hideForm">
           <form>
             <h2>Enter First Year's First Name</h2>
             <div class="">
@@ -41,14 +44,11 @@
                 placeholder=""
               />
             </div>
-            <div class="">
-              <button type="submit" class="btn btn-primary mb-3">Sort</button>
-            </div>
           </form>
         </div>
-        <div class="filterSection">
+        <div id="filterSection">
           <h2>Filter Students</h2>
-          <div class="filterButtonContainer">
+          <div id="filterButtonContainer">
             <button class="btn btn-secondary">All</button>
             <button class="btn btn-danger">Gryffindor</button>
             <button class="btn btn-warning">Hufflepuff</button>
@@ -57,9 +57,15 @@
           </div>
         </div>
       </header>
-      <div class="displayContainer">
-        <div class="firstYearsContainer"></div>
-        <div class="mortysArmyContainer"></div>
+      <div id="displayContainer" class="d-flex flex-row gap-4">
+        <div
+          id="firstYearsContainer"
+          class="d-flex flex-row justify-content-center flex-wrap gap-4"
+        ></div>
+        <div
+          id="mortysArmyContainer"
+          class="d-flex flex-row justify-content-center flex-wrap gap-4"
+        ></div>
       </div>
     </div>
 
