@@ -184,18 +184,19 @@ const createCard = (array) => {
       <div class="card-body">
          <h5 class="card-title">${student.name}</h5>
          <p class="card-text">${student.house}</p>
-         <a id="expelled" class="btn btn-sm btn-danger">Expell</a>
+         <a id="expelled" class="btn btn-sm btn-danger">Expel</a>
       </div>
      
    </div>
    `;
     } else {
-      expelledStudent += `<div style="height: 200px; min-width: 200px;" class="card w-25">
-        <div class="card-body">
-          <h5 class="card-title">EXPELLED</h5>
-          <p class="card-text">${student.name}</p>
-        </div>
-  </div> `;
+      expelledStudent += `<div style="height: 200px; min-width: 200px;" class="card w-25 d-flex flex-column text-center ">
+  <img src="assets/images/death_eaters_wbst.webp" class="card-img-top" alt="...">
+  <div class="card-body">
+       <p class="card-text">${student.name} joined <br/> Morty's Army</p>
+    
+  </div>
+</div>`;
     }
   });
 
@@ -212,8 +213,37 @@ const createCard = (array) => {
 // ### New Student - SORT
 const sortStudent = (event) => {
   event.preventDefault();
+  const studentName = document.querySelector("#inputStudent");
+  const randomSelect = Math.floor(Math.random() * 4);
+  let randomHouse = "";
+
+  if (randomSelect === 1) {
+    randomHouse = "Gryffindor";
+  } else if (randomSelect === 2) {
+    randomHouse = "Hufflepuff";
+  } else if (randomSelect === 3) {
+    randomHouse = "Ravenclaw";
+  } else if (randomSelect === 0) {
+    randomHouse = "Slytherin";
+  }
+
+  const newStudent = {
+    id: students.length + 1,
+    name: studentName.value,
+    house: randomHouse,
+  };
+  students.push(newStudent);
+  createCard(students);
 };
 
 const sortButton = document.querySelector("#sortButton");
 sortButton.addEventListener("click", sortStudent);
+
+const newStudentButton = document.querySelector("#newStudentButton");
+// *** A way to toggle a class on and off on an element ***
+newStudentButton.addEventListener("click", (event) => {
+  const toggleShow = document.querySelector(".hideForm");
+  toggleShow.classList.toggle("showForm");
+});
+
 createCard(students);
