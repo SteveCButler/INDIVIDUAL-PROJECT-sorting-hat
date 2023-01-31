@@ -39,30 +39,42 @@
           </button>
         </div>
         <div id="formContainer" class="hideForm">
-          <form>
-            <h2>Enter First Year's First Name</h2>
-            <div class="">
-              <label for="inputStudent" class="">Student:</label>
-              <input
-                type="text"
-                class="form-control"
-                id="inputStudent"
-                placeholder=""
-              />
-            </div>
-            <div id="sortButton">
-              <button type="submit" class="btn btn-primary mb-3">Sort</button>
+          <h2>Enter First Year's First Name</h2>
+          <form class="">
+            <div class="mb-3 d-flex justify-content-center">
+              <label for="inputStudent" class="col-sm-1 col-form-label"
+                >Student:</label
+              >
+              <div class="col-sm-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputStudent"
+                  placeholder=""
+                />
+              </div>
+              <div id="sortButton">
+                <button type="submit" class="btn btn-primary mb-3">Sort</button>
+              </div>
             </div>
           </form>
         </div>
         <div id="filterSection">
           <h2>Filter Students</h2>
           <div id="filterButtonContainer">
-            <button class="btn btn-secondary">All</button>
-            <button class="btn btn-danger">Gryffindor</button>
-            <button class="btn btn-warning">Hufflepuff</button>
-            <button class="btn btn-primary">Ravenclaw</button>
-            <button class="btn btn-success">Slytherin</button>
+            <button id="allStudents" class="btn btn-secondary">All</button>
+            <button id="gryffindorStudents" class="btn btn-danger">
+              Gryffindor
+            </button>
+            <button id="hufflepuffStudents" class="btn btn-warning">
+              Hufflepuff
+            </button>
+            <button id="ravenclawStudents" class="btn btn-primary">
+              Ravenclaw
+            </button>
+            <button id="slytherinStudents" class="btn btn-success">
+              Slytherin
+            </button>
           </div>
         </div>
       </header>
