@@ -169,6 +169,67 @@ const renderToDom = (divId, htmlString) => {
   displayContainer.innerHTML = htmlString;
 };
 
+const headerContent = () => {
+  const htmlString = `<h1>Welcome to Hoggy Hoggy Warts, RELOADED!</h1>
+  <p>
+    Stupefy alohomora totalus orchideous inflamarae locomotor momentum
+    serpensortia totalus. Patronum kedavra legiliments petrificus expecto
+    banishing expecto patronum arania mobilicorpus petrificus.
+  </p>
+  <hr />
+  <p>
+    Think hard, wish hard, but you may be surprised, because I have the
+    last say, for I am the sorting hat.
+  </p>
+  <div>
+    <button
+      id="newStudentButton"
+      type="submit"
+      class="btn btn-primary mb-3"
+    >
+      New Student
+    </button>
+  </div>
+  <div id="formContainer" class="hideForm">
+    <h2>Enter First Year's First Name</h2>
+    <form class="">
+      <div class="mb-3 d-flex justify-content-center">
+        <label for="inputStudent" class="col-sm-1 col-form-label"
+          >Student:</label
+        >
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="inputStudent" />
+        </div>
+        <div id="sortButton">
+          <button type="submit" class="btn btn-primary mb-3">Sort</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div id="filterSection">
+    <h2>Filter Students</h2>
+    <div id="filterButtonContainer">
+      <button id="allStudents" class="btn btn-secondary">All</button>
+      <button id="gryffindorStudents" class="btn btn-danger">
+        Gryffindor
+      </button>
+      <button id="hufflepuffStudents" class="btn btn-warning">
+        Hufflepuff
+      </button>
+      <button id="ravenclawStudents" class="btn btn-primary">
+        Ravenclaw
+      </button>
+      <button id="slytherinStudents" class="btn btn-success">
+        Slytherin
+      </button>
+    </div>
+  </div>`;
+
+  console.log(htmlString);
+
+  renderToDom("#headerContent", htmlString);
+};
+
 // ### Create Cards
 const createCard = (array) => {
   let activeStudent = "";
@@ -234,66 +295,73 @@ const sortStudent = (event) => {
   };
   students.push(newStudent);
   createCard(students);
+  document.querySelector("form").reset();
 };
 
-const sortButton = document.querySelector("#sortButton");
-sortButton.addEventListener("click", sortStudent);
+const eventListenerIntialize = () => {
+  const sortButton = document.querySelector("#sortButton");
+  sortButton.addEventListener("click", sortStudent);
 
-// ### SHOW HIDE FORM
-const newStudentButton = document.querySelector("#newStudentButton");
-// *** A way to toggle a class on and off on an element ***
-newStudentButton.addEventListener("click", (event) => {
-  const toggleShow = document.querySelector(".hideForm");
-  toggleShow.classList.toggle("showForm");
-});
+  // ### SHOW HIDE FORM
+  const newStudentButton = document.querySelector("#newStudentButton");
+  // *** A way to toggle a class on and off on an element ***
+  newStudentButton.addEventListener("click", (event) => {
+    const toggleShow = document.querySelector(".hideForm");
+    toggleShow.classList.toggle("showForm");
+  });
 
-// ### FILTER BUTTONS
-const all = document.querySelector("#allStudents");
-const gryffindorStudents = document.querySelector("#gryffindorStudents");
-const hufflepuffStudents = document.querySelector("#hufflepuffStudents");
-const ravenclawStudents = document.querySelector("#ravenclawStudents");
-const slytherinStudents = document.querySelector("#slytherinStudents");
+  // ### FILTER BUTTONS
+  const all = document.querySelector("#allStudents");
+  const gryffindorStudents = document.querySelector("#gryffindorStudents");
+  const hufflepuffStudents = document.querySelector("#hufflepuffStudents");
+  const ravenclawStudents = document.querySelector("#ravenclawStudents");
+  const slytherinStudents = document.querySelector("#slytherinStudents");
 
-all.addEventListener("click", () => {
-  createCard(students);
-});
+  all.addEventListener("click", () => {
+    createCard(students);
+  });
 
-gryffindorStudents.addEventListener("click", () => {
-  const griff = students.filter((student) => student.house === "Gryffindor");
-  createCard(griff);
-});
+  gryffindorStudents.addEventListener("click", () => {
+    const griff = students.filter((student) => student.house === "Gryffindor");
+    createCard(griff);
+  });
 
-hufflepuffStudents.addEventListener("click", () => {
-  const huff = students.filter((student) => student.house === "Hufflepuff");
-  createCard(huff);
-});
+  hufflepuffStudents.addEventListener("click", () => {
+    const huff = students.filter((student) => student.house === "Hufflepuff");
+    createCard(huff);
+  });
 
-ravenclawStudents.addEventListener("click", () => {
-  const raven = students.filter((student) => student.house === "Ravenclaw");
-  createCard(raven);
-});
+  ravenclawStudents.addEventListener("click", () => {
+    const raven = students.filter((student) => student.house === "Ravenclaw");
+    createCard(raven);
+  });
 
-slytherinStudents.addEventListener("click", () => {
-  const slytherin = students.filter((student) => student.house === "Slytherin");
-  createCard(slytherin);
-});
-
-//#### EXPEL STUDENT
-const expelled = document.querySelector("#firstYearsContainer");
-
-expelled.addEventListener("click", (event) => {
-  if (event.target.id.includes("expel")) {
-    const [, studentId] = event.target.id.split("--");
-
-    const expelStudent = students.findIndex(
-      (student) => student.id === Number(studentId)
+  slytherinStudents.addEventListener("click", () => {
+    const slytherin = students.filter(
+      (student) => student.house === "Slytherin"
     );
-    students[expelStudent].expelled = true;
-  }
-  createCard(students);
-});
+    createCard(slytherin);
+  });
+
+  //#### EXPEL STUDENT
+  const expelled = document.querySelector("#firstYearsContainer");
+
+  expelled.addEventListener("click", (event) => {
+    if (event.target.id.includes("expel")) {
+      const [, studentId] = event.target.id.split("--");
+
+      const expelStudent = students.findIndex(
+        (student) => student.id === Number(studentId)
+      );
+      students[expelStudent].expelled = true;
+    }
+    createCard(students);
+  });
+};
 
 const appStart = () => {
+  headerContent();
+  eventListenerIntialize();
   createCard(students);
 };
 
