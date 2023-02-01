@@ -117,7 +117,7 @@ const students = [
     id: 20,
     name: "Draco",
     house: "Slytherin",
-    expelled: false,
+    expelled: true,
   },
   {
     id: 21,
@@ -129,13 +129,13 @@ const students = [
     id: 22,
     name: "Gregory",
     house: "Slytherin",
-    expelled: true,
+    expelled: false,
   },
   {
     id: 23,
     name: "Blaise",
     house: "Slytherin",
-    expelled: true,
+    expelled: false,
   },
   {
     id: 24,
@@ -187,7 +187,7 @@ const headerContent = () => {
       type="submit"
       class="btn btn-primary mb-3"
     >
-      New Student
+      Let's Get Sortin'
     </button>
   </div>
   <div id="formContainer" class="hideForm">
