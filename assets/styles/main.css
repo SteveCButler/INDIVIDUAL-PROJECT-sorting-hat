@@ -39,10 +39,11 @@ header {
   width: 100%;
 }
 
-#firstYearsContainer,
-#mortysArmyContainer {
+#newStudentDiv,
+#expelledStudentDiv {
   padding: 1.5em;
   min-width: 50%;
+  text-align: center;
   /* flex-grow: 1; */
   border: 1px solid darkslategrey;
 }

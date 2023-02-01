@@ -184,7 +184,7 @@ const createCard = (array) => {
       <div class="card-body">
          <h5 class="card-title">${student.name}</h5>
          <p class="card-text">${student.house}</p>
-         <a id="expelled" class="btn btn-sm btn-danger">Expel</a>
+         <a id="expel--${student.id}" class="btn btn-sm btn-danger">Expel</a>
       </div>
      
    </div>
@@ -216,7 +216,7 @@ const sortStudent = (event) => {
   const studentName = document.querySelector("#inputStudent");
   const randomSelect = Math.floor(Math.random() * 4);
   let randomHouse = "";
-
+  console.log(event.target.value);
   if (randomSelect === 1) {
     randomHouse = "Gryffindor";
   } else if (randomSelect === 2) {
@@ -277,4 +277,24 @@ slytherinStudents.addEventListener("click", () => {
   const slytherin = students.filter((student) => student.house === "Slytherin");
   createCard(slytherin);
 });
-createCard(students);
+
+//#### EXPEL STUDENT
+const expelled = document.querySelector("#firstYearsContainer");
+
+expelled.addEventListener("click", (event) => {
+  if (event.target.id.includes("expel")) {
+    const [, studentId] = event.target.id.split("--");
+
+    const expelStudent = students.findIndex(
+      (student) => student.id === Number(studentId)
+    );
+    students[expelStudent].expelled = true;
+  }
+  createCard(students);
+});
+
+const appStart = () => {
+  createCard(students);
+};
+
+appStart();
