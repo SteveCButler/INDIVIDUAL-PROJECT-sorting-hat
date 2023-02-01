@@ -190,6 +190,7 @@ const headerContent = () => {
       Let's Get Sortin'
     </button>
   </div>
+  
   <div id="formContainer" class="hideForm">
     <h2>Enter First Year's First Name</h2>
     <form class="">
@@ -204,6 +205,7 @@ const headerContent = () => {
           <button type="submit" class="btn btn-primary mb-3">Sort</button>
         </div>
       </div>
+      <div id="formValidation" style="color: red"></div>
     </form>
   </div>
   <div id="filterSection">
@@ -224,8 +226,6 @@ const headerContent = () => {
       </button>
     </div>
   </div>`;
-
-  console.log(htmlString);
 
   renderToDom("#headerContent", htmlString);
 };
@@ -270,31 +270,41 @@ const createCard = (array) => {
     renderToDom("#mortysArmyContainer", htmlString);
   }
 };
-
+//#### Prevent empty field
+// const emptyForm = () => {
+//   const empty = document.querySelector("#formValidation");
+//   empty.innerHTML = "<p>Please enter a name in the field</p>";
+// };
 // ### New Student - SORT
 const sortStudent = (event) => {
   event.preventDefault();
+  const empty = document.querySelector("#formValidation");
   const studentName = document.querySelector("#inputStudent");
-  const randomSelect = Math.floor(Math.random() * 4);
-  let randomHouse = "";
-  console.log(event.target.value);
-  if (randomSelect === 1) {
-    randomHouse = "Gryffindor";
-  } else if (randomSelect === 2) {
-    randomHouse = "Hufflepuff";
-  } else if (randomSelect === 3) {
-    randomHouse = "Ravenclaw";
-  } else if (randomSelect === 0) {
-    randomHouse = "Slytherin";
-  }
+  if (studentName.value === "") {
+    empty.innerHTML = "<p>Please enter a name in the field</p>";
+  } else {
+    empty.innerHTML = "";
+    const randomSelect = Math.floor(Math.random() * 4);
+    let randomHouse = "";
 
-  const newStudent = {
-    id: students.length + 1,
-    name: studentName.value,
-    house: randomHouse,
-  };
-  students.push(newStudent);
-  createCard(students);
+    if (randomSelect === 1) {
+      randomHouse = "Gryffindor";
+    } else if (randomSelect === 2) {
+      randomHouse = "Hufflepuff";
+    } else if (randomSelect === 3) {
+      randomHouse = "Ravenclaw";
+    } else if (randomSelect === 0) {
+      randomHouse = "Slytherin";
+    }
+
+    const newStudent = {
+      id: students.length + 1,
+      name: studentName.value,
+      house: randomHouse,
+    };
+    students.push(newStudent);
+    createCard(students);
+  }
   document.querySelector("form").reset();
 };
 
