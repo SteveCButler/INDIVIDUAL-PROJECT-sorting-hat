@@ -235,8 +235,8 @@ const createCard = (array) => {
   let activeStudent = "";
   let expelledStudent = "";
   let htmlString = "";
+  array.sort((a, b) => (a.house > b.house ? 1 : -1));
 
-  //for (const student of array) {
   array.forEach((student) => {
     if (!student.expelled) {
       activeStudent += ` <div style="height: 200px; min-width: 200px;" class="card w-25 d-flex flex-row text-center ">
@@ -365,6 +365,7 @@ const eventListenerIntialize = () => {
       );
       students[expelStudent].expelled = true;
     }
+
     createCard(students);
   });
 };
