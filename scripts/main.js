@@ -365,7 +365,6 @@ const eventListenerIntialize = () => {
       );
       students[expelStudent].expelled = true;
     }
-
     createCard(students);
   });
 };
